@@ -1,5 +1,5 @@
 # CRUD using Sequelize ORM v5 with Express and PostgreSQL
-
+Always open for suggestions.
 
 # Intro
 A simple CRUD backend api on 2 Models and how to access and/or transfer data between the two.
