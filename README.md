@@ -6,7 +6,8 @@ A simple CRUD backend api on 2 Models and how to access and/or transfer data bet
 
 
 # To start the project
-```npm run db-start
+```
+npm run db-start
 npm run start-api
 ```
 
