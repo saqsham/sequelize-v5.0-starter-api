@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "db-start": "docker-compose up --build",
+    "db-start": "cd docker && docker-compose up --build",
     "start-api": "npm run migrate && npm run start",
     "migrate": "npx sequelize-cli db:migrate",
     "und-migrate": "npx sequelize-cli db:migrate:undo:all"
