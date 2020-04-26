@@ -26,6 +26,15 @@ module.exports = {
 
     async retreive(req, res) {
         await User
+        .findByPk(req.params.userId,{
+            raw: true,
+        })
+        .then(user => res.status(201).send(user))
+        .catch(error => res.status(400).send(error));
+    },
+
+    async checkData(req, res) {
+        await User
         .auth(req.body.username, req.body.money)
         .then(user => res.status(201).send(user.username))
         .then(user => {
