@@ -91,25 +91,12 @@ module.exports = {
 
     async delete(req, res) {
         await User
-        .findByPk(req.params.userId, {
-            include: [{
-                model: Money,
-                as: 'userMoney'
-            }],
-            raw: true,
-            nest: true,
-        })
-        .then(function (users) {
-            userId = users.id
-        })
-        .catch(error => res.status(400).send(error));
-        await User
         .destroy({ 
-            where: { id: userId }
+            where: { id: req.params.userId }
         })
         .then(() => res.status(200).send('ok'))
         .catch(error => res.status(400).send(error));
-    },
+    }
 
 
 
