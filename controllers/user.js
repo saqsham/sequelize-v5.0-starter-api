@@ -3,7 +3,7 @@ const Money = require('../models').Money;
 
 module.exports = {
 
-    async signup(req, res) {
+    async create(req, res) {
         let user1 = await User
         .create({
             username: req.body.username,
@@ -24,7 +24,7 @@ module.exports = {
 
     },
 
-    async login(req, res) {
+    async retreive(req, res) {
         await User
         .auth(req.body.username, req.body.money)
         .then(user => res.status(201).send(user.username))
