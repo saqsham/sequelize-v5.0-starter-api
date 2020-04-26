@@ -68,6 +68,25 @@ module.exports = {
         .catch(error => res.status(400).send(error));
     },
 
+    async changeUsername(req, res) {
+        await User
+        .findByPk(req.params.userId)
+        .then(user => {
+            if(!user){
+                return res.status(404).send({
+                    message: 'User not found'
+                });
+            }
+            return user
+            .update({
+                username: req.body.username,
+            })
+            .then(() => res.status(200).send('ok'))
+        })
+        .catch(error => res.status(400).send(error));
+
+    },
+
     async delete(req, res) {
         await User
         .findByPk(req.params.userId, {
