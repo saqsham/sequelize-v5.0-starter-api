@@ -71,17 +71,19 @@ module.exports = {
     async changeUsername(req, res) {
         await User
         .findByPk(req.params.userId)
-        .then(user => {
+        .then( async user => {
             if(!user){
                 return res.status(404).send({
                     message: 'User not found'
                 });
             }
-            return user
+            await user
             .update({
                 username: req.body.username,
             })
             .then(() => res.status(200).send('ok'))
+            .catch(error => res.status(400).send(error));
+
         })
         .catch(error => res.status(400).send(error));
 
