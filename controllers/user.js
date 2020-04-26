@@ -96,8 +96,15 @@ module.exports = {
         })
         .then(() => res.status(200).send('ok'))
         .catch(error => res.status(400).send(error));
-    }
+    },
 
-
-
+    async wipeData() {
+        await Money
+        .sync({
+            force: true
+        })
+        .then(() => res.status(200).send('ok'))
+        .catch(error => res.status(400).send(error));
+    },
+    
 }

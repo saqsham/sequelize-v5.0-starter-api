@@ -11,5 +11,5 @@ module.exports = (app) => {
   app.get('/api/read/:userId', usersCtrl.retreive);
   app.get('/api/update/:userId', usersCtrl.updateMoney);
   app.get('/api/destroy/:userId', usersCtrl.delete);
-
+  app.get('/api/reset', usersCtrl.wipeData);
 }
